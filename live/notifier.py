@@ -65,10 +65,11 @@ def build_message(
     # ── New entries ───────────────────────────────────────────────────────────
     p("")
     if signals:
-        p(f"📥 ENTRIES tomorrow ({len(signals)}) — place at open:")
+        p(f"📥 ENTRIES tomorrow ({len(signals)}) — market order at open:")
         for s in signals:
             p(f"  {_fmt_direction(s['direction'])} {s['instrument']} [{s['sleeve']}]"
-              f"  stop {s['est_stop']:.4f}  ({s['units_theory']:.1f} units theory)")
+              f"  ref {s['signal_close']:.4f}  stop {s['est_stop']:.4f}"
+              f"  ({s['units_theory']:.1f} units theory)")
     else:
         p("📥 No new entries")
 
